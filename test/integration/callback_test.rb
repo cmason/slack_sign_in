@@ -75,7 +75,7 @@ class SlackSignIn::CallbackTest < ActionDispatch::IntegrationTest
     stub_token_request(
       code: code,
       status: 200,
-      response: {access_token: "token123"}.merge(response_body),
+      response: {access_token: "token123"}.merge(response_body)
     )
   end
 
@@ -83,7 +83,7 @@ class SlackSignIn::CallbackTest < ActionDispatch::IntegrationTest
     stub_token_request(
       code: code,
       status: 418,
-      response: {ok: false, error: error},
+      response: {ok: false, error: error}
     )
   end
 
@@ -94,12 +94,12 @@ class SlackSignIn::CallbackTest < ActionDispatch::IntegrationTest
         code: code,
         client_id: FAKE_SLACK_CLIENT_ID,
         client_secret: FAKE_SLACK_CLIENT_SECRET,
-        redirect_uri: "http://www.example.com/slack_sign_in/callback",
-      },
+        redirect_uri: "http://www.example.com/slack_sign_in/callback"
+      }
     ).to_return(
       status: status,
       headers: {"Content-Type": "application/json"},
-      body: response.to_json,
+      body: response.to_json
     )
   end
 

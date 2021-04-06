@@ -10,7 +10,7 @@ module SlackSignIn
         SlackSignIn.client_secret,
         authorize_url: SlackSignIn::AUTHORIZE_URL,
         token_url: SlackSignIn::TOKEN_URL,
-        redirect_uri: callback_url,
+        redirect_uri: callback_url
       )
     end
   end

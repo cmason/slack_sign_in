@@ -11,8 +11,8 @@ module SlackSignIn
         user: {
           name: "Example User",
           email: "example@email.com",
-          image_48: "http://avatar.com",
-        },
+          image_48: "http://avatar.com"
+        }
       }
     end
 

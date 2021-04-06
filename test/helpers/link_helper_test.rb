@@ -14,7 +14,7 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
   test "generating a login link with options" do
     link = slack_sign_in_link(
       proceed_to: "https://www.example.com/sessions",
-      class: "text-blue-400",
+      class: "text-blue-400"
     )
 
     assert_dom_equal <<-HTML, link
@@ -27,7 +27,7 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
   test "generating a login link with text" do
     link = slack_sign_in_link(
       "Sign In!",
-      proceed_to: "https://www.example.com/sessions",
+      proceed_to: "https://www.example.com/sessions"
     )
 
     assert_dom_equal <<-HTML, link
@@ -41,7 +41,7 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
     link = slack_sign_in_link(
       "Sign In!",
       proceed_to: "https://www.example.com/sessions",
-      data: {confirm: "You sure?"},
+      data: {confirm: "You sure?"}
     )
 
     assert_dom_equal <<-HTML, link

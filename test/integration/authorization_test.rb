@@ -20,7 +20,7 @@ class SlackSignIn::AuthorizationTest < ActionDispatch::IntegrationTest
 
   def url_params
     @_url_params ||= Rack::Utils.parse_query(
-      URI(response.location).query,
+      URI(response.location).query
     ).symbolize_keys
   end
 end
