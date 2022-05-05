@@ -1,6 +1,6 @@
 class SlackSignIn::AuthorizationsController < SlackSignIn::ApplicationController
   def create
-    redirect_to slack_login_url, flash: {proceed_to: proceed_to, state: state}
+    redirect_to slack_login_url, flash: {proceed_to: proceed_to, state: state}, allow_other_host: true
   end
 
   private
