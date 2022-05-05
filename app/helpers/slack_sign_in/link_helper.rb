@@ -4,11 +4,11 @@ module SlackSignIn::LinkHelper
     auth_url = slack_sign_in.authorization_path(proceed_to: proceed_to)
 
     if text
-      link_to(text, auth_url, options)
+      button_to(text, auth_url, options)
     elsif block_given?
-      link_to(auth_url, options, &block)
+      button_to(auth_url, options, &block)
     else
-      link_to(auth_url, options) { slack_sign_in_image }
+      button_to(auth_url, options) { slack_sign_in_image }
     end
   end
 
