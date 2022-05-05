@@ -5,9 +5,11 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
     link = slack_sign_in_link(proceed_to: "https://www.example.com/sessions")
 
     assert_dom_equal <<-HTML, link
-      <a rel="nofollow" data-method="post" href="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
-        #{slack_sign_in_image}
-      </a>
+      <form class="button_to" method="post" action="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
+        <button type="submit">
+          #{slack_sign_in_image}
+        </button>
+      </form>
     HTML
   end
 
@@ -18,9 +20,11 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
     )
 
     assert_dom_equal <<-HTML, link
-      <a class="text-blue-400" rel="nofollow" data-method="post" href="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
+      <form class="button_to" method="post" action="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
+        <button class="text-blue-400" type="submit">
         #{slack_sign_in_image}
-      </a>
+        </button>
+      </form>
     HTML
   end
 
@@ -31,9 +35,9 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
     )
 
     assert_dom_equal <<-HTML, link
-      <a rel="nofollow" data-method="post" href="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
-        Sign In!
-      </a>
+      <form class="button_to" method="post" action="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
+        <input type="submit" value="Sign In!" />
+      </form>
     HTML
   end
 
@@ -45,9 +49,9 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
     )
 
     assert_dom_equal <<-HTML, link
-      <a data-confirm="You sure?" rel="nofollow" data-method="post" href="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
-        Sign In!
-      </a>
+      <form class="button_to" method="post" action="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
+        <input data-confirm="You sure?" type="submit" value="Sign In!" />
+      </form>
     HTML
   end
 
@@ -57,9 +61,9 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
     }
 
     assert_dom_equal <<-HTML, link
-      <a rel="nofollow" data-method="post" href="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
-        Some Block Text!
-      </a>
+      <form class="button_to" method="post" action="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
+        <button type="submit">Some Block Text!</button>
+      </form>
     HTML
   end
 
@@ -69,9 +73,11 @@ class SlackSignIn::LinkHelperTest < ActionView::TestCase
     }
 
     assert_dom_equal <<-HTML, link
-      <a class="rounded" rel="nofollow" data-method="post" href="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
-        <img src="/images/my_cool_image.png" />
-      </a>
+      <form class="button_to" method="post" action="/slack_sign_in/authorization?proceed_to=https%3A%2F%2Fwww.example.com%2Fsessions">
+        <button class="rounded" type="submit">
+          <img src="/images/my_cool_image.png" />
+        </button>
+      </form>
     HTML
   end
 
